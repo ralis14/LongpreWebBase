@@ -1,6 +1,7 @@
 <?php
-include "readlineTest.php";
+require "ExpressionString.php";
+require "Expression.php";
 ?>
-<?php
-test();
-?>
+ <?php
+main();
+ ?>
