@@ -14,7 +14,8 @@
 
 		while(($inputLine = fgets($urlInput)) != NULL )
 		{
-		$two = str_replace(" ", "", $inputLine);
+	
+		$two = trim($inputLine);	
 		print("$indent"."$two"."<br>");
 		$e = new ExpressionString($two);
 		try
@@ -31,7 +32,7 @@
 				if($e->getIndex() >= strlen($two))
 					print("$indent"."Invalid Expression, unexpected end of line");
 				else
-					print("$indent"."Invalid Expression, unexpected character at index ".$e->getIndex());
+					print("$indent"."Invalid Expression, unexpected character at index: " .$e->getIndex());
 			}
 			print("<br><br>");
 		}
@@ -62,7 +63,7 @@
 		{
 			$e->advance();
 			$result = evalExpr($e);
-			if($e->getCurrentChar() != ')' )
+			if($e->getCurrentChar() !== ')' )
 			{
 				throw new Exception();
 			}
